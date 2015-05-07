@@ -145,15 +145,25 @@ public class LinkedList {
 							p._sem.release();
 							return;
 						} 
-				
 						if (val == next.getInt()) {
-							n._sem.acquire();
 							p._sem.acquire();
-			    		
+							next._sem.acquire();
+							n._sem.acquire();
+							if (n.getPrev()==null || p.getNext()==null) {
+								p._sem.release();
+								next._sem.release();
+								n._sem.release();
+								System.out.println("Something wrong...");
+								this.printOut();
+								throw new NullPointerException();
+							}
 			    		// at this point, now and next are all claimed
 							p.setNext(n);
 							n.setPrev(p);
+							next.setPrev(null);
+							next.setNext(null);
 							n._sem.release();
+							next._sem.release();
 							p._sem.release();
 							return;
 						}
