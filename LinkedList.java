@@ -140,9 +140,9 @@ public class LinkedList {
 						Node n = next.getNext();
 						Node p = next.getPrev();
 						if (n == null) {
-							p._sem.acquire();
-							p.setNext(null);
-							p._sem.release();
+							//p._sem.acquire();
+							//p.setNext(null);
+							//p._sem.release();
 							return;
 						} 
 						if (val == next.getInt()) {

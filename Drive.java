@@ -77,7 +77,7 @@ public class Drive {
 						e.printStackTrace();
 					}
 					  try {
-						lsl.Delete(generator.nextInt(10));
+						lsl.Delete(5);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -92,8 +92,10 @@ public class Drive {
 				  }
 			}).start();
 		}
+		
 		Thread.sleep(1000*5);
 		System.out.print(lsl.invariantCheck());
+		lsl.printOut();
 ////		
 ////		lsl.hybernate = true;
 ////		//Destructive Invariant Checker
